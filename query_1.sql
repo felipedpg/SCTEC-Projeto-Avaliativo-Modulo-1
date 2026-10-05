@@ -1,0 +1,19 @@
+Query 1: Salarios por departamento e cargo
+SELECT
+    e.EMPLOYEE_ID,
+    e.FIRST_NAME,
+    e.LAST_NAME,
+    e.SALARY,
+    e.DEPARTMENT_ID,
+    d.DEPARTMENT_NAME,
+    e.JOB_ID,
+    j.JOB_TITLE,
+    j.MIN_SALARY,
+    j.MAX_SALARY
+FROM HR.EMPLOYEES e
+LEFT JOIN HR.DEPARTMENTS d
+    ON e.DEPARTMENT_ID = d.DEPARTMENT_ID
+LEFT JOIN HR.JOBS j
+    ON e.JOB_ID = j.JOB_ID
+WHERE e.SALARY > 0
+ORDER BY e.SALARY DESC;
